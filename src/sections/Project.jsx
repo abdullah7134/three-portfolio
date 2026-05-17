@@ -39,7 +39,7 @@ const Project = () => {
                         <p className="animatedText">{currentproject.desc}</p>
                         <p className="animatedText">{currentproject.subdesc}</p>
                     </div>
-                    <div className="flex items-center flex-wrap justify-between gap-5">
+                    <div className="flex items-center flex-wrap gap-5">
                         <div className="flex items-center gap-3">
                             {currentproject.tags.map((tag, index) => (
                                 <div key={index} className="tech-logo">
@@ -47,10 +47,6 @@ const Project = () => {
                                 </div>
                             ))}
                         </div>
-                        <a className="flex items-center gap-2 cursor-pointer text-white-600" href={currentproject.href} target="_blank" rel="noreferrer">
-                            <p>Check live site</p>
-                            <img src="/assets/arrow-up.png" className="w-3 h-3" alt="arrow" />
-                        </a>
                     </div>
                     <div className="flex justify-between items-center mt-7">
                         <button className="arrow-btn" onClick={() => handleNavigation("prev")}>
