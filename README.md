@@ -1,12 +1,99 @@
-# React + Vite
+# 🚀 3D Developer Portfolio Website (React + TypeScript + Three.js)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![3D portfolio preview (click to watch video)](./Screenshot_2026-04-08_22-10-00.png)](./screen-capture%20(13).webm)
 
-Currently, two official plugins are available:
+A modern, high-performance **3D developer portfolio website** built with **React**, **TypeScript**, **Three.js**, **GSAP**, and **WebGL**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+If you’re a developer looking for a **portfolio template** that feels premium, interactive, and memorable—this repo is for you.
 
-## Expanding the ESLint configuration
+> Live preview: https://www.redoyanulhaque.me/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Highlights
+
+- **3D / WebGL experience** powered by **Three.js**
+- Smooth animations with **GSAP**
+- Modern **React + TypeScript** codebase
+- Fast, responsive UI (desktop + mobile)
+- Designed for developers, engineers, programmers, and creators
+
+---
+
+## 🧰 Tech Stack
+
+- **React**
+- **TypeScript**
+- **Three.js / WebGL**
+- **GSAP**
+- **HTML / CSS / JavaScript**
+
+---
+
+## 🚀 Getting Started
+
+### 1) Clone
+
+```bash
+git clone https://github.com/red1-for-hek/portfolio-website.git
+cd portfolio-website
+```
+
+### 2) Install
+
+```bash
+npm install
+```
+
+### 3) Run locally
+
+```bash
+npm run dev
+```
+
+### 4) Build
+
+```bash
+npm run build
+```
+
+---
+
+## 🧩 Customize (Quick Guide)
+
+Typical things you’ll want to update:
+
+- **Your name + hero section text**
+- **Projects list**
+- **Social links** (GitHub, LinkedIn, email)
+- **SEO meta title/description**
+
+---
+
+## ⭐ Support
+
+If you found this useful:
+
+- Please **star** the repository (it helps a lot)
+- Share it with a friend who needs a portfolio template
+- Sponsor via the **Sponsor** button on GitHub (if available in your region)
+
+---
+
+## 🤝 Connect
+
+- LinkedIn: https://www.linkedin.com/in/red1-for-hek/
+
+---
+
+## 🏷️ Recommended GitHub Topics (add in repo settings)
+
+Add these topics to improve GitHub search visibility:
+
+`portfolio` `developer-portfolio` `portfolio-website` `portfolio-template` `3d-portfolio` `react` `typescript` `threejs` `webgl` `gsap` `frontend` `vite`
+
+---
+
+## 🪪 License
+
+This project is open source and available under the **MIT License**. See [LICENSE](LICENSE).

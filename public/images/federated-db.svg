@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <rect width="800" height="500" fill="#0a0a12"/>
+  <ellipse cx="400" cy="250" rx="80" ry="50" fill="#1a1a2e" stroke="#c2a4ff" stroke-width="2"/>
+  <text x="400" y="255" text-anchor="middle" fill="#c2a4ff" font-family="sans-serif" font-size="14">Federated</text>
+  <ellipse cx="200" cy="150" rx="70" ry="40" fill="#1a1a2e" stroke="#22c55e" stroke-width="2"/>
+  <text x="200" y="155" text-anchor="middle" fill="#22c55e" font-family="sans-serif" font-size="12">MySQL</text>
+  <ellipse cx="600" cy="150" rx="70" ry="40" fill="#1a1a2e" stroke="#f59e0b" stroke-width="2"/>
+  <text x="600" y="155" text-anchor="middle" fill="#f59e0b" font-family="sans-serif" font-size="12">MongoDB</text>
+  <ellipse cx="400" cy="400" rx="70" ry="40" fill="#1a1a2e" stroke="#ef4444" stroke-width="2"/>
+  <text x="400" y="405" text-anchor="middle" fill="#ef4444" font-family="sans-serif" font-size="12">Oracle</text>
+  <line x1="260" y1="170" x2="340" y2="220" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+  <line x1="540" y1="170" x2="460" y2="220" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+  <line x1="400" y1="300" x2="400" y2="360" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+</svg>
