@@ -2,10 +2,10 @@ import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 import { eyebrowBoneNames, typingBoneNames } from "../../../data/boneData";
 
-const setAnimations = (gltf: GLTF) => {
+const setAnimations = (gltf: GLTF, isMobile = false) => {
   let character = gltf.scene;
   let mixer = new THREE.AnimationMixer(character);
-  if (gltf.animations) {
+  if (gltf.animations && !isMobile) {
     const introClip = gltf.animations.find(
       (clip) => clip.name === "introAnimation"
     );
@@ -32,7 +32,17 @@ const setAnimations = (gltf: GLTF) => {
       typingAction.timeScale = 1.2;
     }
   }
+  function startBlink() {
+    const blink = gltf.animations.find((clip) => clip.name === "Blink");
+    if (blink) {
+      mixer.clipAction(blink).play().fadeIn(0.5);
+    }
+  }
   function startIntro() {
+    if (isMobile) {
+      startBlink();
+      return;
+    }
     const introClip = gltf.animations.find(
       (clip) => clip.name === "introAnimation"
     );
@@ -40,8 +50,7 @@ const setAnimations = (gltf: GLTF) => {
     introAction.clampWhenFinished = true;
     introAction.reset().play();
     setTimeout(() => {
-      const blink = gltf.animations.find((clip) => clip.name === "Blink");
-      mixer.clipAction(blink!).play().fadeIn(0.5);
+      startBlink();
     }, 2500);
   }
   function hover(gltf: GLTF, hoverDiv: HTMLDivElement) {

@@ -22,6 +22,7 @@ const Scene = () => {
   const [character, setChar] = useState<THREE.Object3D | null>(null);
   useEffect(() => {
     if (canvasDiv.current) {
+      const isMobile = window.innerWidth <= 768;
       let rect = canvasDiv.current.getBoundingClientRect();
       let container = { width: rect.width, height: rect.height };
       const aspect = container.width / container.height;
@@ -56,8 +57,10 @@ const Scene = () => {
 
       loadCharacter().then((gltf) => {
         if (gltf) {
-          const animations = setAnimations(gltf);
-          hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
+          const animations = setAnimations(gltf, isMobile);
+          if (!isMobile && hoverDivRef.current) {
+            animations.hover(gltf, hoverDivRef.current);
+          }
           mixer = animations.mixer;
           let character = gltf.scene;
           setChar(character);
@@ -65,10 +68,11 @@ const Scene = () => {
           headBone = character.getObjectByName("spine006") || null;
           screenLight = character.getObjectByName("screenlight") || null;
           progress.loaded().then(() => {
+            const introDelay = isMobile ? 300 : 2500;
             setTimeout(() => {
               light.turnOnLights();
               animations.startIntro();
-            }, 2500);
+            }, introDelay);
           });
           window.addEventListener("resize", () =>
             handleResize(renderer, camera, canvasDiv, character)
@@ -99,25 +103,29 @@ const Scene = () => {
         });
       };
 
-      document.addEventListener("mousemove", (event) => {
-        onMouseMove(event);
-      });
       const landingDiv = document.getElementById("landingDiv");
-      if (landingDiv) {
-        landingDiv.addEventListener("touchstart", onTouchStart);
-        landingDiv.addEventListener("touchend", onTouchEnd);
+
+      if (!isMobile) {
+        document.addEventListener("mousemove", onMouseMove);
+        if (landingDiv) {
+          landingDiv.addEventListener("touchstart", onTouchStart);
+          landingDiv.addEventListener("touchend", onTouchEnd);
+        }
       }
+
       const animate = () => {
         requestAnimationFrame(animate);
         if (headBone) {
-          handleHeadRotation(
-            headBone,
-            mouse.x,
-            mouse.y,
-            interpolation.x,
-            interpolation.y,
-            THREE.MathUtils.lerp
-          );
+          if (!isMobile) {
+            handleHeadRotation(
+              headBone,
+              mouse.x,
+              mouse.y,
+              interpolation.x,
+              interpolation.y,
+              THREE.MathUtils.lerp
+            );
+          }
           light.setPointLight(screenLight);
         }
         const delta = clock.getDelta();
@@ -137,10 +145,12 @@ const Scene = () => {
         if (canvasDiv.current) {
           canvasDiv.current.removeChild(renderer.domElement);
         }
-        if (landingDiv) {
+        if (!isMobile) {
           document.removeEventListener("mousemove", onMouseMove);
-          landingDiv.removeEventListener("touchstart", onTouchStart);
-          landingDiv.removeEventListener("touchend", onTouchEnd);
+          if (landingDiv) {
+            landingDiv.removeEventListener("touchstart", onTouchStart);
+            landingDiv.removeEventListener("touchend", onTouchEnd);
+          }
         }
       };
     }
